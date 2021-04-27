@@ -11,10 +11,10 @@ class _TabBarState extends State<TabBarWidget> {
   List<dynamic> _widgetOptions = <Widget>[
     HomeScreen(),
     Text(
-      'Index 1: Business',
+      'Trending Page',
     ),
     Text(
-      'Index 2: School',
+      'Subscriptions Page',
     ),
   ];
 
