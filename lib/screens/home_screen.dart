@@ -1,15 +1,16 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:youtube_app/screens/video_detail_screen.dart';
 import 'package:youtube_app/services/youtube_service.dart';
 import 'package:youtube_app/utils/common.dart';
 
 class HomeScreen extends StatefulWidget {
+  final AppBar appBar;
+  HomeScreen({this.appBar});
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _numPages = 0;
   int page = 1;
   ScrollController _scrollController = new ScrollController();
   List _videos;
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
           context,
           MaterialPageRoute(
             builder: (ctx) => VideoDetailScreen(
-              videoId: _videos[i]["id"],
+              video: _videos[i],
             ),
           ),
         );
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          Common.cutString(_videos[i]["snippet"]["title"], 70),
+                          Common.cutString(_videos[i]["snippet"]["title"], 50),
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                           maxLines: 2,
@@ -202,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _noData() {
     return Container(
       child: Center(
-        child: Text("No hemos econtrado ningun video"),
+        child: Text("No hemos encontrado ningun video"),
       ),
     );
   }

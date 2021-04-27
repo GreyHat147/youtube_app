@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:numeral/numeral.dart';
 
 class Common {
   static String cutString(String str, int length) {
@@ -15,5 +16,10 @@ class Common {
 
   static DateTime strToDateTime(String date) {
     return DateTime.parse(date);
+  }
+
+  static String roundNumber(String number) {
+    num n = num.parse(number);
+    return Numeral(n).value();
   }
 }
