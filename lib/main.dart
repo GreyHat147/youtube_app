@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:youtube_app/screens/video_detail_screen.dart';
 import 'package:youtube_app/widgets/tab_bar.dart';
 
 void main() {
